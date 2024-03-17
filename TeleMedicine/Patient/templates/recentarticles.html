@@ -1,0 +1,53 @@
+
+{% extends 'patient_nav.html' %}
+{% load static %}
+{% block body %}
+<style>
+    /* In your CSS file (e.g., style.css) */
+.container {
+    padding: 20px;
+}
+
+.article-card {
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+.article-card h2 {
+    color: #333;
+}
+
+.article-card h5 {
+    color: #666;
+    font-style: italic;
+}
+
+.article-card h4 {
+    color: #999;
+    margin-top: 10px;
+}
+
+.article-card p {
+    color: #444;
+    line-height: 1.6;
+}
+
+</style>
+
+<div class="container" style="margin-top: 90px;">
+    <h2 class="text-center">RECENT ARTICLES</h2>
+    <hr>
+    {% for article in recent_articles %}
+    <div class="article-card">
+        <h2>{{ article.title }}</h2>
+        <h5>{{ article.author }}</h5>
+        <h4>{{ article.publish_date }}</h4>
+        <p>{{ article.content }}</p>
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}
+

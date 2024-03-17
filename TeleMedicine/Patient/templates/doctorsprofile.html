@@ -1,0 +1,50 @@
+{% extends 'patient_nav.html' %}
+{% load static%}
+{% block body%}
+<style>
+    .box-container {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1.5rem;
+        margin: 2rem;
+      }
+      .box-tilt{
+        box-shadow: 1px 1px solid black;
+        border: 1px solid black;
+        width: 300px;
+        height: 300px;
+        padding: 15px;
+        box-shadow: 10px 10px 10px  black;
+        border-radius: 12px;
+      }
+</style>
+<link rel="stylesheet" href="{static 'css/mystyle.css'}">
+
+<div class="container"style="margin-top:90px;">
+    <a href="{% url 'makeapp' %}" class="btn btn-danger" style="text-align: center;">Make an Appointment</a>
+    <h2 class="text-center">Doctors Profile</h2>
+    <div class="box-container">
+        
+        {% for d in doctor %}
+        <div class="box-tilt">
+            <img draggable="false" src="#" alt="" />
+            <div class="content">
+                <h3>{{d.last_name}} {{d.first_name}}</h3> <br>
+                <i class="material-icons"><a href="mailto:{{d.email}}"></a></i> <br>
+                <b>contact no :</b> {{d.contact_no}} <br>
+                <b>Designation : </b>{{d.designation}} <br>
+                <b>Specialty : </b>{{d.specialty}} <br>
+                <b>Hosipital : </b>{{d.hospital}} <br>
+                <b>Experience : </b>{{d.experience_years}}
+            </div>
+        </div>
+        {%endfor%}
+        
+{% if error %}
+<script>
+    alert('profile updated')
+    window.location="{% url 'profile' %}"
+</script>
+{%endif %}
+
+{%endblock%}

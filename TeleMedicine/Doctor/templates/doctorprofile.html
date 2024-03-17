@@ -1,0 +1,65 @@
+{% extends 'doctor_nav.html' %}
+{% load static%}
+{% block body%}
+<div class="container"style="margin-top:90px;">
+    <h2 class="text-center">PROFILE</h2>
+    <hr>
+    <div class="row">
+        <div class="col-md-6">
+            <b>FULL NAME : </b>
+        </div>
+        <div class="col-md-6">
+            {{data.user.last_name}} {{data.user.first_name}}
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6">
+            <b>EMAIL ID : </b>
+        </div>
+        <div class="col-md-6">
+            {{data.user.username}} 
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6">
+            <b>CONTACT : </b>
+        </div>
+        <div class="col-md-6">
+            {{data.contact_no}}
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6">
+            <b>HOSPITAL NAME : </b>
+        </div>
+        <div class="col-md-6">
+            {{data.hospital}}
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6">
+            <b>DESIGNATION : </b>
+        </div>
+        <div class="col-md-6">
+            {{data.designation}}
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6">
+            <b>SPECIALTY : </b>
+        </div>
+        <div class="col-md-6">
+            {{data.specialty}}
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6">
+            <b>YEARS OF EXPERIENCE : </b>
+        </div>
+        <div class="col-md-6">
+            {{data.experience_years}}
+        </div>
+    </div><br><br>
+    <a href="{% url 'doctoredit'%}" class="btn btn-danger ">EDIT PROFILE</a>
+</div>
+{%endblock%}
